@@ -1,13 +1,159 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>SkateFun</title>
-  <!-- TailwindCDN：官方最新 CDN -->
+  <title>SkateFun | Nordic Minimal Skate School</title>
+
+  <!-- Tailwind CDN + 自訂主題色（北歐靛藍 & 海松綠） -->
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#102c55',   // 靛藍 – 信任、沉穩
+            accent:  '#36d3ae',   // 海松綠 – 活力、健康
+            sand:    '#f5f7f9'    // 極淺灰 – 北歐留白
+          },
+          fontFamily: {
+            sans: ['Inter','ui-sans-serif','system-ui']
+          }
+        }
+      }
+    }
+  </script>
   <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Google Fonts：Inter 更有北歐感 -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <!-- AOS 動畫庫 -->
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet"/>
 </head>
-<body class="bg-slate-50 flex items-center justify-center min-h-screen">
-  <h1 class="text-4xl font-bold text-[#102c55]">Hello SkateFun!</h1>
+
+<body class="bg-sand font-sans text-slate-800">
+
+<!-- Header -->
+<header class="bg-primary text-white">
+  <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+    <img src="logo.svg" alt="SkateFun logo" class="h-10"/>
+    <nav class="space-x-6 hidden md:block">
+      <a href="#about" class="hover:text-accent">理念</a>
+      <a href="#pricing" class="hover:text-accent">方案</a>
+      <a href="#signup" class="hover:text-accent">報名</a>
+    </nav>
+  </div>
+</header>
+
+<!-- Hero -->
+<!-- Hero (LOGO + 標語) -->
+<section class="bg-primary text-white">
+  <div class="max-w-4xl mx-auto px-6 py-24 flex flex-col items-center gap-8" data-aos="fade-up">
+    
+    <!-- LOGO -->
+    <img src="logo.png" alt="SkateFun logo" class="h-32 w-auto" />
+
+    <!-- 標語 & 年資 -->
+    <h1 class="text-3xl md:text-4xl font-bold text-center leading-snug">
+      近 <span class="text-accent">10 年</span> 滑板實戰經驗教練團隊<br>
+      超過 <span class="text-accent">3 年</span> 滑板教學陪伴，<br>
+      帶你安全自信地踏上第一塊板！
+    </h1>
+
+    <!-- 行動按鈕 -->
+    <div class="flex flex-col sm:flex-row gap-4">
+      <a href="#pricing" class="bg-accent text-primary px-8 py-3 rounded-full font-semibold">
+        查看方案
+      </a>
+      <a href="https://lin.ee/765edrue" target="_blank"
+         class="border border-white px-8 py-3 rounded-full font-semibold hover:bg-white hover:text-primary transition">
+        加入官方 LINE @765edrue
+      </a>
+    </div>
+
+  </div>
+</section>
+
+<!-- Teaching Philosophy -->
+<section id="about" class="max-w-6xl mx-auto px-6 py-16 space-y-10">
+  <div data-aos="fade-right">
+    <h2 class="text-3xl font-bold mb-4 text-primary">教學理念</h2>
+    <p class="text-lg leading-relaxed">
+      <strong>Fun · Safe · Progress</strong><br>
+      我們相信滑板不只是運動，更是讓孩子（和家長）學會面對恐懼與失敗的
+      <span class="underline decoration-accent decoration-4">成長儀式</span>。<br>
+      <ul class="list-disc pl-5 mt-4 space-y-2 text-base">
+        <li><b>安全優先：</b>專業護具 & 漸進式動作，零恐懼入門</li>
+        <li><b>極簡方法：</b>先掌握 20% 關鍵動作 → 創造 80% 進步</li>
+        <li><b>正向心態：</b>用運動心理學技巧，化挫折為動力</li>
+      </ul>
+    </p>
+  </div>
+</section>
+
+<!-- Pricing -->
+<section id="pricing" class="bg-white">
+  <div class="max-w-6xl mx-auto px-6 py-16">
+    <h2 class="text-3xl font-bold text-center mb-10 text-primary" data-aos="zoom-in">方案與收費</h2>
+    <div class="grid md:grid-cols-2 gap-8" data-aos="fade-up">
+      <!-- Video -->
+      <div class="border rounded-3xl p-8 shadow-sm bg-sand flex flex-col">
+        <h3 class="font-bold text-xl mb-1">線上影片診斷包</h3>
+        <p class="text-sm text-slate-500 mb-4">Online Breakdown</p>
+        <ul class="space-y-2 flex-1">
+          <li>✓ 慢動作錯誤標註</li>
+          <li>✓ 專屬 1 週練習表</li>
+          <li>✓ 心態 / 哲學提醒</li>
+          <li>✓ 3 天內追蹤一次</li>
+        </ul>
+        <p class="text-3xl font-extrabold my-6">NT$ 599</p>
+        <a href="#signup" class="bg-accent text-primary text-center py-3 rounded-full font-semibold">
+          立即報名
+        </a>
+      </div>
+      <!-- 1 on 1 -->
+      <div class="border rounded-3xl p-8 shadow-sm bg-sand flex flex-col">
+        <h3 class="font-bold text-xl mb-1">高雄 1-on-1 教練（60 分）</h3>
+        <p class="text-sm text-slate-500 mb-4">In‑person Lesson</p>
+        <ul class="space-y-2 flex-1">
+          <li>✓ 現場姿勢矯正</li>
+          <li>✓ 專業護具 / 板具</li>
+          <li>✓ 課後練習計畫</li>
+          <li>✓ 7 天訊息追蹤</li>
+        </ul>
+        <p class="text-3xl font-extrabold my-6">NT$ 1,999</p>
+        <a href="#signup" class="bg-primary text-white text-center py-3 rounded-full font-semibold">
+          立即預約
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Signup Form -->
+<section id="signup" class="max-w-6xl mx-auto px-6 py-20">
+  <h2 class="text-3xl font-bold mb-8 text-center text-primary" data-aos="fade-up">報名表單</h2>
+  <div class="rounded-3xl overflow-hidden shadow-lg" data-aos="fade-up" data-aos-delay="150">
+    <iframe src="YOUR_GOOGLE_FORM_EMBED_URL"
+            width="100%" height="1200" frameborder="0" marginheight="0" marginwidth="0">
+      Loading…
+    </iframe>
+  </div>
+  <p class="mt-6 text-center text-sm">
+    任何疑問歡迎 <a href="https://lin.ee/yourlineid" class="underline text-accent font-semibold">私訊 LINE</a>
+  </p>
+</section>
+
+<!-- Footer -->
+<footer class="bg-primary text-white py-6">
+  <div class="max-w-6xl mx-auto px-6 text-center text-sm space-y-2">
+    <p>© 2025 SkateFun 滑趣</p>
+    <p class="opacity-70">Kaohsiung, Taiwan · TEL +886‑xxx‑xxxx</p>
+  </div>
+</footer>
+
+<!-- AOS init -->
+<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+<script> AOS.init({ once:true, duration:700 }); </script>
 </body>
 </html>
